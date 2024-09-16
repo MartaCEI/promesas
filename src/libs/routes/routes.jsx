@@ -4,6 +4,7 @@ import Layout from "../../Layout"
 import FakeStoreApi from "../../pages/FakeStoreApi"
 import RandomUser from "../../pages/RandomUser"
 import PokeApi from "../../pages/PokeApi"
+import Pokemon from "../../pages/Pokemon"
 
 const router = createBrowserRouter(
     [
@@ -29,7 +30,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/pokeApi/:id",
-                    element: <PokeApi />,
+                    element: <Pokemon />,
                 },
             ],
         }

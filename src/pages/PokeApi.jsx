@@ -35,6 +35,8 @@ const PokeApi = () => {
         }
     }
 
+
+
     const handlePrevPage = () => {
         if (pokemon.previous) {
             fetchPokemon(pokemon.previous);

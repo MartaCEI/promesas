@@ -2,35 +2,68 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const PokeApi = () => {
-    const [pokemon, setPokemon] = useState([
-        count = null,
-        next = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20",
-        previous = null,
-        results = []
-    ]);
+    const [pokemon, setPokemon] = useState({
+        count: 0,
+        next: "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20",
+        previous: null,
+        results: []
+    });
+    const [filter, setFilter] = useState("");
+    let disable = false;
 
     useEffect(() => {
         fetchPokemon();
-    }   , []);
+    }, []);
 
-    const fetchPokemon = async () => {
+    useEffect(() => {
+        if (filter) fetchFilter();
+    }, [filter]);
+
+    const fetchPokemon = async (url = "https://pokeapi.co/api/v2/pokemon") => {
         try {
-            const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+            const response = await fetch(url);
             const objeto = await response.json();
-            setPokemon(objeto.results);
+            setPokemon({
+                count: objeto.count,
+                next: objeto.next,
+                previous: objeto.previous,
+                results: objeto.results
+            });
+            console.log(objeto);
         } catch (error) {
             console.error(error);
+        }
+    }
+
+    const handlePrevPage = () => {
+        if (pokemon.previous) {
+            fetchPokemon(pokemon.previous);
+        } else {
+            disable = true;
+        }
+    }
+
+    const handleNextPage = () => {
+        if (pokemon.next) {
+            fetchPokemon(pokemon.next);
+        } else {
+            disable = true;
         }
     }
 
     return (
         <div>
             <h1>PokeApi</h1>
-            <p>Aquí encontraras toda la informacion sobre tus pokemosn favoritos</p>
+            <p>Aquí encontrarás toda la información sobre tus pokémon favoritos</p>
+            <p>Cantidad de pokémon: {pokemon.count}</p>
+            <div className="botones-div">
+                <button className="link-btn" onClick={handlePrevPage} disabled={disable}>Prev</button>
+                <button className="link-btn" onClick={handleNextPage} disabled={disable}>Next</button>
+            </div>
             <ul>
-                {pokemon.map((poke, index) => (
+                {pokemon.results.map((poke, index) => (
                     <li key={index}>
-                        <Link to={"/pokemon"}>
+                        <Link key={index} to={`/pokeApi/${index}`}>
                             {poke.name}
                         </Link>
                     </li>

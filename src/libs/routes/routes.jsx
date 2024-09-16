@@ -27,6 +27,10 @@ const router = createBrowserRouter(
                     path: "/pokeApi",
                     element: <PokeApi />,
                 },
+                {
+                    path: "/pokeApi/:id",
+                    element: <PokeApi />,
+                },
             ],
         }
     ]

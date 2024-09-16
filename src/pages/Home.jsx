@@ -1,8 +1,11 @@
 
+
 const Home = () => {
+
+    
     return (
         <>
-        soy el home
+
         </>
     );
 }

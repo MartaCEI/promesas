@@ -1,0 +1,135 @@
+
+
+@font-face {
+    font-family: 'Pokemon';
+    src: url(../assets/fonts/pokemon/pokemon_Solid.ttf);
+}
+
+@font-face {
+    font-family: 'Pokemon_hollow';
+    src: url(../assets/fonts/pokemon/pokemon_Hollow.ttf);
+}
+
+/* PokeApi.css */
+.Section {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.Section-img {
+    border-radius: 1rem;
+    width: 70%;
+    margin: 1rem auto;
+}
+
+.Section-h2 {
+    text-align: center;
+    font-family: 'Pokemon', sans-serif;
+    font-size: 1.5rem;
+    text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+    margin: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+.Section-cantidad {
+    font-family: 'Pokemon', sans-serif;
+    color: #ffce08;
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 1rem;
+    color: black;
+    letter-spacing: 0.1rem;
+}
+
+
+.Section-div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: space-between;
+    margin: 1rem;
+}
+
+.Section-btn {
+    font-family: Pokemon, sans-serif;
+    font-size: 1.2rem;
+    padding: 0.2rem 1.2rem 0.4rem;
+    border-radius: 1rem;
+    background-color: #ffcb08;
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 0.1rem;
+}
+
+.Section-ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.Section-p {
+    font-family: 'Pokemon', sans-serif;
+    color: #ffce08;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 1rem;
+    color: royalblue;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+}
+
+.Section-p:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+/* Pokemon.css */
+
+.Article-container {
+    max-width: 50rem;
+    margin: 2rem auto;
+    display: flex;
+    flex-flow: column nowrap;
+
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.Article-h2 {
+    font-family: 'Pokemon', sans-serif;
+    text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    letter-spacing: 0.2rem;
+}
+
+.Article-div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Article-p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem;
+}
+.Article-map {
+    width: 80%;
+    margin: 0 auto;
+    border-top: lightslategray 1px solid;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+}

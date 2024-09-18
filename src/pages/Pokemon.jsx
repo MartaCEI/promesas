@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const Pokemon = () => {
     const {id} = useParams();
+    console.log(id);
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -20,59 +21,81 @@ const Pokemon = () => {
         }
     }
 
-    const {abilities, forms, moves, species, name, sprites, height, weight, type} = data;
+    const {abilities, base_experience,order, forms, moves, species, stats, name, sprites, height, weight, type} = data;
     const {back_default, front_default, back_shiny, front_shiny} = sprites || {};
 
     return (
-        <article className="Post-article">
-            <h2 className="Post-h2">{name}</h2>
-            <div>
+        <article className="Article-container">
+            <div className="Article-div">
+                <h2 className="Article-h2">{name}</h2>
+            </div>
+
+            <div className="Article-div">
                 <img src={back_default} alt={name} />
                 <img src={front_default} alt={name} />
                 <img src={back_shiny} alt={name} />
                 <img src={front_shiny} alt={name} />
             </div>
-            <p className="Post-p"><b>Height: </b>{height}</p>
-            <p className="Post-p"><b>Weight</b>{weight}</p>
 
-            <p><b>Habilidades: </b></p>
-            <ul>
-                <li>
-                    {
-                        abilities && abilities.map((ability, index) => (
-                            <p key={index} className="Post-p">{ability.ability.name}</p>
-                        ))
-                    }
-                </li>
-            </ul>
-            <p><b>Fromas: </b></p>
-            <ul>
-                <li>
-                    {
-                        forms && forms.map((form, index) => (
-                            <p key={index} className="Post-p">{form.name}</p>
-                        ))
-                    }
-                </li>
-            </ul>
-            <p><b>Movimientos: </b></p>
-            <ul>
-                <li>
-                    {
-                        moves && moves.map((move, index) => (
-                            <p key={index} className="Post-p">{move.move.name}</p>
-                        ))
-                    }
-                </li>
-            </ul>
-            <p><b>Especies: </b></p>
-            <ul>
-                <li>
-                    {
-                        species && <p className="Post-p">{species.name}</p>
-                    }
-                </li>
-            </ul>
+            <div className="Article-div">
+                <p className="Article-p"><b>Height: </b>{height}</p>
+                <p className="Article-p"><b>Weight: </b>{weight}</p>
+                <p className="Article-p"><b>Base Experience: </b>{base_experience}</p>
+            </div>
+
+            <div className="Article-div">
+                <p className="Article-p"><b>Número de orden en la pokedex: </b>{order}</p>
+            </div>
+
+            <div className="Article-map">
+                <p className="Article-p"><b>Habilidades: </b></p>
+                <ul>
+                    <li>
+                        {
+                            abilities && abilities.map((ability, index) => (
+                                <p key={index} className="Article-p">{ability.ability.name}</p>
+                            ))
+                        }
+                    </li>
+                </ul>
+            </div>
+
+            <div className="Article-map">
+                <p className="Article-p"><b>Formas: </b></p>
+                <ul>
+                    <li>
+                        {
+                            forms && forms.map((form, index) => (
+                                <p key={index} className="Article-p">{form.name}</p>
+                            ))
+                        }
+                    </li>
+                </ul>
+            </div>
+
+            <div className="Article-map">
+            <p className="Article-p"><b>Estadísticas: </b></p>
+                <ul>
+                    <li>
+                        {
+                            stats && stats.map((stat, index) => (
+                                <p key={index} className="Article-p">{stat.stat.name}: {stat.base_stat}</p>
+                            ))
+                        }
+                    </li>
+                </ul>
+            </div>
+
+            <div className="Article-map">
+                <p className="Article-p"><b>Especies: </b></p>
+                <ul>
+                    <li>
+                        {
+                            species && <p className="Article-p">{species.name}</p>
+                        }
+                    </li>
+                </ul>
+            </div>
         </article>
     );
 }

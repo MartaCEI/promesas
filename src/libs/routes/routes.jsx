@@ -5,6 +5,8 @@ import FakeStoreApi from "../../pages/FakeStoreApi"
 import RandomUser from "../../pages/RandomUser"
 import PokeApi from "../../pages/PokeApi"
 import Pokemon from "../../pages/Pokemon"
+import Producto from "../../pages/Producto"
+import User from "../../pages/User"
 
 const router = createBrowserRouter(
     [
@@ -21,8 +23,16 @@ const router = createBrowserRouter(
                     element: <FakeStoreApi />,
                 },
                 {
+                    path: "/storeApi/:id",
+                    element: <Producto />,
+                },
+                {
                     path: "/randomUser",
                     element: <RandomUser />,
+                },
+                {
+                    path: "/randomUser/:id",
+                    element: <User />,
                 },
                 {
                     path: "/pokeApi",

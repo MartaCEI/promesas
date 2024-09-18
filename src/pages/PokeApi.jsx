@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import logo_pokemon from "../assets/Pokemon.png";
+import '../css/PokeApi.css'
 
 const PokeApi = () => {
     const [pokemon, setPokemon] = useState({
@@ -14,10 +16,6 @@ const PokeApi = () => {
     useEffect(() => {
         fetchPokemon();
     }, []);
-
-    useEffect(() => {
-        if (filter) fetchFilter();
-    }, [filter]);
 
     const fetchPokemon = async (url = "https://pokeapi.co/api/v2/pokemon") => {
         try {
@@ -54,24 +52,24 @@ const PokeApi = () => {
     }
 
     return (
-        <div>
-            <h1>PokeApi</h1>
-            <p>Aquí encontrarás toda la información sobre tus pokémon favoritos</p>
-            <p>Cantidad de pokémon: {pokemon.count}</p>
-            <div className="botones-div">
-                <button className="link-btn" onClick={handlePrevPage} disabled={disable}>Prev</button>
-                <button className="link-btn" onClick={handleNextPage} disabled={disable}>Next</button>
+        <section className="Section">
+            <img className="Section-img" src={logo_pokemon} alt="pokemon" />
+            <h2 className="Section-h2" >Aquí encontrarás toda la información sobre tus pokémon favoritos</h2>
+            <p className="Section-cantidad" >Cantidad de pokémon: {pokemon.count}</p>
+            <div className="Section-div">
+                <button className="Section-btn" onClick={handlePrevPage} disabled={disable}>Prev</button>
+                <button className="Section-btn" onClick={handleNextPage} disabled={disable}>Next</button>
             </div>
-            <ul>
-                {pokemon.results.map((poke, index) => (
-                    <li key={index}>
-                        <Link key={index} to={`/pokeApi/${index}`}>
-                            {poke.name}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
+                <ul className="Section-ul">
+                    {pokemon.results.map((poke, index) => (
+                        <li key={index}>
+                            <Link key={index} to={`/pokeApi/${index}`} {...poke}>
+                                <p className="Section-p">{poke.name}</p>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+        </section>
     );
 }
 

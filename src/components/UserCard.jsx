@@ -1,9 +1,9 @@
 const UserCard = ({gender, name, city, state, country, postcode, email, cell, picture}) => {
-    const color="";
+    const color="blue";
     if (gender == "female") {
         color="pink";
     } else {
-        color="blue";
+        color
     }
 
     return (

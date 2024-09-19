@@ -63,7 +63,7 @@ const PokeApi = () => {
                 <ul className="Section-ul">
                     {pokemon.results.map((poke, index) => (
                         <li key={index}>
-                            <Link key={index} to={`/pokeApi/${index}`} {...poke}>
+                            <Link key={index} to={`/pokeApi/${poke.name}`}>
                                 <p className="Section-p">{poke.name}</p>
                             </Link>
                         </li>

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 const Pokemon = () => {
     const {id} = useParams();
-    console.log(id);
     const [data, setData] = useState([]);
 
     useEffect(() => {

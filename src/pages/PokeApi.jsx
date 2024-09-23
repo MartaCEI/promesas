@@ -33,8 +33,6 @@ const PokeApi = () => {
         }
     }
 
-
-
     const handlePrevPage = () => {
         if (pokemon.previous) {
             fetchPokemon(pokemon.previous);
@@ -52,19 +50,19 @@ const PokeApi = () => {
     }
 
     return (
-        <section className="Section">
-            <img className="Section-img" src={logo_pokemon} alt="pokemon" />
-            <h2 className="Section-h2" >Aquí encontrarás toda la información sobre tus pokémon favoritos</h2>
-            <p className="Section-cantidad" >Cantidad de pokémon: {pokemon.count}</p>
-            <div className="Section-div">
-                <button className="Section-btn" onClick={handlePrevPage} disabled={disable}>Prev</button>
-                <button className="Section-btn" onClick={handleNextPage} disabled={disable}>Next</button>
+        <section className="Pokemon">
+            <img className="Pokemon-img" src={logo_pokemon} alt="pokemon" />
+            <h2 className="Pokemon-h2" >Aquí encontrarás toda la información sobre tus pokémon favoritos</h2>
+            <p className="Pokemon-cantidad" >Cantidad de pokémon: {pokemon.count}</p>
+            <div className="Pokemon-div">
+                <button className="Pokemon-btn" onClick={handlePrevPage} disabled={disable}>Prev</button>
+                <button className="Pokemon-btn" onClick={handleNextPage} disabled={disable}>Next</button>
             </div>
-                <ul className="Section-ul">
+                <ul className="Pokemon-ul">
                     {pokemon.results.map((poke, index) => (
                         <li key={index}>
                             <Link key={index} to={`/pokeApi/${poke.name}`}>
-                                <p className="Section-p">{poke.name}</p>
+                                <p className="Pokemon-p">{poke.name}</p>
                             </Link>
                         </li>
                     ))}

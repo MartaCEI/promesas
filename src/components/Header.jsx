@@ -8,7 +8,7 @@ const Header = () => {
             <nav className="Header-nav">
                 <ul className="Header-ul">
                     <li><NavLink to={"/"} className="Header-a">Home</NavLink></li>
-                    <li><NavLink to={"/storeApi"} className="Header-a">StoreApi</NavLink></li>
+                    <li><NavLink to={"/products"} className="Header-a">StoreApi</NavLink></li>
                     <li><NavLink to={"/randomUser"} className="Header-a">RandomUser</NavLink></li>
                     <li><NavLink to={"/pokeApi"} className="Header-a">PokeApi</NavLink></li>
                 </ul>

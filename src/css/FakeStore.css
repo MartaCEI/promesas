@@ -1,0 +1,139 @@
+.Store-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.Store-h1 {
+    font-size: 2.5rem;
+    color: #df1010;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.Store-p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.Store-ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Store-li {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.Store-li:before {
+    content: "New";
+    background: #FF4E00;
+    padding: 10px;
+    width: 60px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    transform: rotate(-90deg);
+    color: white;
+}
+
+.Store-innerContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.Store-img {
+    width: 100%;
+    max-height: ;
+    object-fit: cover;
+}
+
+.Store-title {
+    text-align: center;
+}
+
+.Store-price, 
+.Product-price {
+    color: #FF4E00;
+    font-weight: bold;
+}
+
+.Store-button,
+.Product-button {
+    background: #FF4E00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.Store-button:hover,
+.Product-button:hover {
+    background: #333;
+}
+
+.Store-li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Product-container {
+    height: 90vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.Product-containerLeft {
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.Product-img {
+    width: 80%;
+    object-fit: cover;
+}
+
+.Product-containerRight {
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.Product-title {
+
+}
+
+.Product-description {
+
+}
+
+.Product-price {
+
+}
+
+.Product-description {
+
+}
+

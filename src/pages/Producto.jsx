@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import SingleProduct from '../components/SingleProduct';
+import { useEffect, useState } from 'react';
 
 const Producto = () => {
     const [product, setProduct] = useState({});
@@ -7,11 +9,11 @@ const Producto = () => {
     useEffect(() => {
         fetchProduct();
     }
-    , [id]);
+    , []);
 
     const fetchProduct = async () => {
         try {
-            const response = await fetch(`https://fakestoreapi.com/storeApi/${id}`);
+            const response = await fetch(`https://fakestoreapi.com/products/${id}`);
             const data = await response.json();
             setProduct(data);
         }
@@ -22,8 +24,7 @@ const Producto = () => {
 
     return (
         <div>
-            <h1>Producto</h1>
-            <p>Product ID: {id}</p>
+            <SingleProduct {...product} />
         </div>
     );
 }

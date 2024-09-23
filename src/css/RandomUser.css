@@ -19,7 +19,11 @@
 
 .Section {
     display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     margin: auto;
+    padding: 1rem;
     max-width: 22rem;
     background: #ffffff8d;
     box-shadow: 0 0 1rem rgba(0, 0, 0, .1);

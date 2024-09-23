@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ProductoCard from "../components/ProductoCard";
+import '../css/FakeStore.css';
 
 const FakeStoreApi = () => {
     const [products, setProducts] = useState([]);
@@ -21,13 +22,13 @@ const FakeStoreApi = () => {
     }
 
     return (
-        <div>
-            <h1>Fake Store API</h1>
-            <p>Here is a list of products from the Fake Store API:</p>
-            <ul>
+        <div className="Store-container">
+            <h1 className="Store-h1">Fake Store API</h1>
+            <p className="Store-p">Here is a list of products from the Fake Store API:</p>
+            <ul className="Store-ul">
                 {
                 products.map(product => (
-                    <li key={product.id}>
+                    <li className="Store-li" key={product.id}>
                         <ProductoCard {...product} />
                     </li>
                 ))

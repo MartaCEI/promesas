@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Pokemon from '../assets/img/Pokemon.jpg';
 import Store from '../assets/img/Store.jpg';
 import Users from '../assets/img/Users.jpg';
@@ -11,16 +12,22 @@ const Home = () => {
                 <p className='Main-p'>En esta página podrás encontrar como funciona en un front-end the React con Vite las siguentes tres APIS:</p>
                 <div className='Main-grid'>
                     <div className='Main-div'>
-                        <p className='Main-p'>https://pokeapi.co/</p>
-                        <img className='Main-img' src={Pokemon} alt="Pokemon" />
+                        <Link to='/pokeApi' >
+                            <p className='Main-p'>https://pokeapi.co/</p>
+                            <img className='Main-img' src={Pokemon} alt="Pokemon" />
+                        </Link>
                     </div>
                     <div className='Main-div'>
-                        <p className='Main-p'>https://fakestoreapi.com/</p>
-                        <img className='Main-img' src={Store} alt="Store" />
+                        <Link to='/products'>
+                            <p className='Main-p'>https://fakestoreapi.com/</p>
+                            <img className='Main-img' src={Store} alt="Store" />
+                        </Link>
                     </div>
                     <div className='Main-div'>
-                        <p className='Main-p'>https://randomuser.me/</p>
-                        <img className='Main-img' src={Users} alt="Users" />
+                        <Link to='/randomUser'>
+                            <p className='Main-p'>https://randomuser.me/</p>
+                            <img className='Main-img' src={Users} alt="Users" />
+                        </Link>
                     </div>
                 </div>
             </section>

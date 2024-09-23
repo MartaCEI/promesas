@@ -12,12 +12,13 @@ const PokeApi = () => {
     });
     const [filter, setFilter] = useState("");
     let disable = false;
+    const {VITE_POKEMON} = import.meta.env;
 
     useEffect(() => {
         fetchPokemon();
     }, []);
 
-    const fetchPokemon = async (url = "https://pokeapi.co/api/v2/pokemon") => {
+    const fetchPokemon = async (url = `${VITE_POKEMON}`) => {
         try {
             const response = await fetch(url);
             const objeto = await response.json();

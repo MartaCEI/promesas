@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 const Producto = () => {
     const [product, setProduct] = useState({});
     const { id } = useParams();
+    const {VITE_FAKE_STORE} = import.meta.env;
 
     useEffect(() => {
         fetchProduct();
@@ -13,7 +14,7 @@ const Producto = () => {
 
     const fetchProduct = async () => {
         try {
-            const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+            const response = await fetch(`${VITE_FAKE_STORE}/${id}`);
             const data = await response.json();
             setProduct(data);
         }

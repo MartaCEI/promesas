@@ -4,6 +4,7 @@ import '../css/RandomUser.css';
 
 const RandomUser = () => {
     const [users, setUsers] = useState([]);
+    const {VITE_RANDOM_USER} = import.meta.env;
 
     useEffect(() => {
         fetchUsers();
@@ -12,7 +13,7 @@ const RandomUser = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch('https://randomuser.me/api/?results=20');
+            const response = await fetch(`${VITE_RANDOM_USER}/?results=20`);
             const objeto = await response.json();
             setUsers(objeto.results);
             console.log(objeto.results);

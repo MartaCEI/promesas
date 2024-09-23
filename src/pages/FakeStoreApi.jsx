@@ -5,6 +5,8 @@ import '../css/FakeStore.css';
 const FakeStoreApi = () => {
     const [products, setProducts] = useState([]);
 
+    const {VITE_FAKE_STORE} = import.meta.env;
+
     useEffect(() => {
         fetchProducts();
     }
@@ -12,7 +14,7 @@ const FakeStoreApi = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch('https://fakestoreapi.com/products');
+            const response = await fetch(`${VITE_FAKE_STORE}`);
             const data = await response.json();
             setProducts(data);
         }

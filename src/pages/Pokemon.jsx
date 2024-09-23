@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-
+import { useEffect, useState } from "react"
 
 const Pokemon = () => {
     const {id} = useParams();
     const [data, setData] = useState([]);
+    const {VITE_POKEMON} = import.meta.env;
 
     useEffect(() => {
         fetchSinglePokemon();
@@ -12,7 +12,7 @@ const Pokemon = () => {
 
     const fetchSinglePokemon = async () => {
         try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+            const response = await fetch(`${VITE_POKEMON}/${id}`);
             const objeto = await response.json();
             setData(objeto);
         } catch (error) {

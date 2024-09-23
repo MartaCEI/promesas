@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import UserCard from '../components/UserCard';
+import '../css/RandomUser.css';
 
 const RandomUser = () => {
     const [users, setUsers] = useState([]);
@@ -11,7 +12,7 @@ const RandomUser = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/users');
+            const response = await fetch('https://randomuser.me/api/?results=20');
             const objeto = await response.json();
             setUsers(objeto.results);
             console.log(objeto.results);
@@ -22,9 +23,9 @@ const RandomUser = () => {
     }
 
     return (
-        <div>
-            <h1>Random User</h1>
-            <ul>
+        <section>
+            <h1 className='Section-h1'>Random User</h1>
+            <ul className='Section-grid'>
                 {
                 users.map(user => (
                     <li key={user.id}>
@@ -33,7 +34,7 @@ const RandomUser = () => {
                 ))
                 }
             </ul>
-        </div>
+        </section>
     );
 }
 

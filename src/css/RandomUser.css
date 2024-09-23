@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
+
+.Section-h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: "Raleway", sans-serif;
+    color: #2c3e50;
+    font-weight: bold;
+    margin: 1rem;
+}
+
+.Section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    grid-gap: 1rem;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.Section {
+    display: flex;
+    margin: auto;
+    max-width: 22rem;
+    background: #ffffff8d;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+}
+
+.Section-img {
+    width: 50%;
+    border-radius: 100%;
+}
+
+.Section-name {
+    color: #16a085;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "Coda", sans-serif;
+    font-weight: bold;
+}
+
+.Section-username {
+    text-align: center;
+    color: #3498db;
+    font-size: .87rem;
+    font-family: "varela round", sans-serif;
+    margin-bottom: 1rem;
+}
+
+.Section-description {
+    margin: auto;
+    color: #7f8c8d;
+    font-size: 1rem;
+    font-family: "varela round", sans-serif;
+}

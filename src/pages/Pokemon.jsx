@@ -5,18 +5,26 @@ const Pokemon = () => {
     const {id} = useParams();
     const [data, setData] = useState([]);
     const {VITE_POKEMON} = import.meta.env;
+    const [userError, setUserError] = useState(null);
 
     useEffect(() => {
         fetchSinglePokemon();
     }, []);
 
     const fetchSinglePokemon = async () => {
+        const controller = new AbortController();
         try {
             const response = await fetch(`${VITE_POKEMON}/${id}`);
             const objeto = await response.json();
+            if (objeto.status == "error") {
+                setUserError(`Tuvimos un error: ${objeto.msg}`)
+                return;
+            } 
             setData(objeto);
         } catch (error) {
             console.error(error);
+        } finally {
+            controller.abort();
         }
     }
 

@@ -10,7 +10,7 @@ const PokeApi = () => {
         previous: null,
         results: []
     });
-    const [filter, setFilter] = useState("");
+    const [userError, setUserError] = useState(null);
     let disable = false;
     const {VITE_POKEMON} = import.meta.env;
 
@@ -19,18 +19,26 @@ const PokeApi = () => {
     }, []);
 
     const fetchPokemon = async (url = `${VITE_POKEMON}`) => {
+        const controller = new AbortController();
         try {
             const response = await fetch(url);
             const objeto = await response.json();
+
+            if (objeto.status == "error") {
+                setUserError(`Tuvimos un error: ${objeto.msg}`)
+                return;
+            } 
             setPokemon({
                 count: objeto.count,
                 next: objeto.next,
                 previous: objeto.previous,
                 results: objeto.results
             });
-            console.log(objeto);
+
         } catch (error) {
             console.error(error);
+        } finally {
+            controller.abort();
         }
     }
 

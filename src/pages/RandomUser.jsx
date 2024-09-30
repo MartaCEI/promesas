@@ -4,6 +4,7 @@ import '../css/RandomUser.css';
 
 const RandomUser = () => {
     const [users, setUsers] = useState([]);
+    const [userError, setUserError] = useState(null);
     const {VITE_RANDOM_USER} = import.meta.env;
 
     useEffect(() => {
@@ -12,14 +13,22 @@ const RandomUser = () => {
     , []);
 
     const fetchUsers = async () => {
+        const controller = new AbortController();
         try {
+            
             const response = await fetch(`${VITE_RANDOM_USER}/?results=20`);
             const objeto = await response.json();
+
+            if (objeto.status == "error") {
+                setUserError(`Tuvimos un error: ${objeto.msg}`)
+                return;
+            } 
             setUsers(objeto.results);
-            console.log(objeto.results);
         }
         catch (error) {
-            console.error(error);
+            console.error('Hubo un problema con la solicitud:', error.message);
+        } finally {
+            controller.abort();
         }
     }
 

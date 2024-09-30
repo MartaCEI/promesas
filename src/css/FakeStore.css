@@ -56,7 +56,6 @@
 
 .Store-img {
     width: 100%;
-    max-height: ;
     object-fit: cover;
 }
 
@@ -119,21 +118,5 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-}
-
-.Product-title {
-
-}
-
-.Product-description {
-
-}
-
-.Product-price {
-
-}
-
-.Product-description {
-
 }
 
